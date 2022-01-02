@@ -6,23 +6,22 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 
-
 import java.io.IOException;
 
 public class SetUp {
 
-    private static  boolean isAppAlreadyLaunched = true;
+    private static final boolean isAppAlreadyLaunched = false;
 
 
     @After
-    public  static  void  afterScenario(Scenario scenario) throws IOException {
+    public static void afterScenario(Scenario scenario) throws IOException {
 
-        if(scenario.isFailed()){
+        if (scenario.isFailed()) {
 
             BasePage.takeScreenShotOnFailure(scenario);
         }
 
-        if(BasePage.Android){
+        if (BasePage.Android) {
             BasePage.stopVideoRecording(scenario);
         }
         AppiumTest.closeApp();
@@ -30,15 +29,15 @@ public class SetUp {
 
     @Before
 
-    public static void  beforeScenario(){
-        if(isAppAlreadyLaunched){
-            isAppAlreadyLaunched=false;
-        }else {
-            AppiumTest.launchApp();
-        }
+    public static void beforeScenario() {
+//        if(isAppAlreadyLaunched){
+//            isAppAlreadyLaunched=true;
+//        }else {
+//            AppiumTest.launchApp();
+//        }
         //ffmpeg library is not found in the path install it usig 'brew install ffmpeg' to record video on iOS
-
-        if(BasePage.Android){
+        AppiumTest.launchApp();
+        if (BasePage.Android) {
             BasePage.startVideoRecording();
         }
     }

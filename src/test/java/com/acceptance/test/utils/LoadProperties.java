@@ -24,7 +24,15 @@ public class LoadProperties {
         return LoadProperties.INSTANCE;
     }
 
-    public  void loadProperties(final String path) {
+    public static Properties getProps() {
+        return LoadProperties.getInstance().props;
+    }
+
+    public static String getProperty(String propKey) {
+        return getProps().getProperty(propKey);
+    }
+
+    public void loadProperties(final String path) {
 
         InputStream inputStream = null;
         try {
@@ -49,16 +57,9 @@ public class LoadProperties {
         return;
 
     }
-
-    public static Properties getProps() {
-        return LoadProperties.getInstance().props;
-    }
-    public static String getProperty(String propKey) {
-       return getProps().getProperty(propKey);
-    }
 }
 
-class  UnableToLoadPropertiesException extends  RuntimeException {
+class UnableToLoadPropertiesException extends RuntimeException {
     UnableToLoadPropertiesException(final String message) {
         super(message);
     }

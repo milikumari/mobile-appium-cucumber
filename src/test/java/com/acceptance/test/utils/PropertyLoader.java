@@ -16,7 +16,7 @@ public class PropertyLoader {
     private static final Logger logger = LogManager.getLogger(PropertyLoader.class);
     private Properties props;
 
-    private static void parseProperties(InputStream streams)  {
+    private static void parseProperties(InputStream streams) {
         Properties props = new Properties();
         try {
             props.load(streams);
@@ -36,7 +36,7 @@ public class PropertyLoader {
         System.getProperty("webdriver.local.run");
     }
 
-    public  static void loadConfig() {
+    public static void loadConfig() {
         InputStream propertiesStream = getPropertiesInputStream();
 
         if (nonNull(propertiesStream)) {
@@ -45,7 +45,7 @@ public class PropertyLoader {
         System.getProperty("webdriver.local.run");
     }
 
-    private static InputStream getPropertiesInputStream()  {
+    private static InputStream getPropertiesInputStream() {
 
         InputStream propsStream = null;
         try {
