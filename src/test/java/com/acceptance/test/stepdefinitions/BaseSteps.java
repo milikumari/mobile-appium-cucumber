@@ -1,6 +1,7 @@
 package com.acceptance.test.stepdefinitions;
 
 import com.acceptance.test.pages.BasePage;
+import com.acceptance.test.utils.ScenarioProvider;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidStartScreenRecordingOptions;
 import io.appium.java_client.ios.IOSStartScreenRecordingOptions;
@@ -22,5 +23,11 @@ import java.util.Date;
 
 
 public class BaseSteps {
-
+    protected  final ScenarioProvider scenarioProvider;
+    //Lo4j has reported some vulnerability  I will remove lo4j  soon
+    private final Logger logger;
+    public  BaseSteps(ScenarioProvider scenarioProvider ){
+        this.scenarioProvider= scenarioProvider;
+        this.logger= LogManager.getLogger(Thread.currentThread().getStackTrace()[2].getClassName());
+    }
 }

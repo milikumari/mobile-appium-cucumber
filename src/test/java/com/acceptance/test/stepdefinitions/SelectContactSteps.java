@@ -5,10 +5,17 @@ import com.acceptance.test.pages.chatting.DocumentsPage;
 import com.acceptance.test.pages.chatting.WhatsAppPage;
 import com.acceptance.test.pages.contact.CreateContactPage;
 import com.acceptance.test.pages.contact.SelectContactPage;
+import com.acceptance.test.utils.ScenarioProvider;
+import com.acceptance.test.utils.TestDataProvider;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class SelectContactSteps {
+public class SelectContactSteps extends  BaseSteps {
+    private TestDataProvider testDataProvider;
+    public SelectContactSteps(TestDataProvider testDataProvider, ScenarioProvider scenarioProvider) {
+        super(scenarioProvider);
+        this.testDataProvider = testDataProvider;
+    }
 
     SelectContactPage onSelectContactPage = new SelectContactPage();
     CreateContactPage onCreateContactPage = new CreateContactPage();
@@ -24,31 +31,27 @@ public class SelectContactSteps {
     @When("I tap on new chat icon")
     public void i_tap_on_new_chat_icon() {
         onWhatsAppPage.selectNewChatOption();
-      //  onCreateContactPage.provideContactDetails("test1", "00447921880054");
     }
 
     @When("I send a random file to that contact")
     public void i_send_a_random_file_to_that_contact() {
         onWhatsAppPage.initiateChat();
         onContactChatPage.selectAttachmentLink();
-        onContactChatPage.selectAttachmentType("documents");
+        onContactChatPage.selectAttachmentType(testDataProvider.getUser().getAttachmentType());
         // This below step will need to be modified if different type of attachment is selected
-        //sendFile("attachmentType");
+        //sendFile(testDataProvider.getUser().getAttachmentType());
         onDocumentsFileSelectionPage.sendFileFromTheList();
     }
 
     private  void sendFile(String attachmentType){
-
+          //TODO implement this in teh future
         switch (attachmentType.toLowerCase()){
-
             case"documents":
                 onDocumentsFileSelectionPage.sendFileFromTheList();
                 break;
             case "location":
-                //TO DO
                 break;
             case "gallery":
-                //TO DO
              //   onGalleryPage().sendFileFromTheList()
                 break;
         }
@@ -62,14 +65,13 @@ public class SelectContactSteps {
     @When("I add new contact")
     public void i_add_new_contact() {
         onSelectContactPage.selectNewContactOption();
-        onCreateContactPage.provideContactDetails("","007921880054");
+        onCreateContactPage.provideContactDetails(testDataProvider.getUser().getNewContactPersonName(),testDataProvider.getUser().getNewContactPersonNumber());
     }
     @When("I select a contact from the list")
     public void i_select_a_contact_from_the_list() {
         if(onSelectContactPage.noContactsFound()){
             i_add_new_contact();
-            boolean isNewContactAdded = true;
         }else
-            onSelectContactPage.selectFirstContactFromTheList("contactName");
+            onSelectContactPage.selectFirstContactFromTheList(testDataProvider.getUser().getNewContactPersonName());
     }
 }

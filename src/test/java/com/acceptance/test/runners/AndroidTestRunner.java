@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
         (
                 publish = false,
                 glue = {"com.acceptance.test.stepdefinitions"},
-                tags = "@cucumberTest1"
+                tags = "@whatsAppChat"
                 , features = "src/test/resources/features"
                 , plugin = {"json:target/report/cucumber-json.json", "html:target/report/cucumber-report.html",
                 "de.monochromata.cucumber.report.PrettyReports:target/AndroidReports",

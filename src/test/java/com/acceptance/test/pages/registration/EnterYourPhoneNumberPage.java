@@ -101,14 +101,15 @@ public class EnterYourPhoneNumberPage extends BasePage {
         clickOn_(deny_Button); // if you want whatsApp to verify OTP automatically read.
     }
 
-    private void allowWhatsAppToAccessSms(){
-        clickOn_(allow_Button); // if you want whatsApp to verify OTP automatically read.
+    private void allowWhatsAppToAccessSms() {
+        clickOn_(allow_Button);
+
     }
 
     private void allowWhatsAppToAutomaticallyVerifyOTP(){
         if(isElementVisible(continue_Button)) {
             clickOn_(continue_Button);
-        }// if you want whatsApp to verify OTP automatically read.
+        }
     }
     private void doNotAllowWhatsAppToAutomaticallyVerifyOTP(){
         clickOn_(notNow_Button); // if you want whatsApp to verify OTP automatically read.
