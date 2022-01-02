@@ -1,5 +1,5 @@
 Feature:  whats app feature validations
-@cucumberTest1
+@whatsAppChat
   Scenario: Register and send random file to contact on whats app
     Given I register with a user on whatsapp
     When I navigate to whatsapp chat screen

@@ -1,4 +1,4 @@
-package com.acceptance.test.pages.newContact;
+package com.acceptance.test.pages.contact;
 
 import com.acceptance.test.pages.BasePage;
 import io.appium.java_client.MobileElement;

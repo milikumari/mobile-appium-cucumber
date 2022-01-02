@@ -3,8 +3,8 @@ package com.acceptance.test.stepdefinitions;
 import com.acceptance.test.pages.chatting.ContactChatPage;
 import com.acceptance.test.pages.chatting.DocumentsPage;
 import com.acceptance.test.pages.chatting.WhatsAppPage;
-import com.acceptance.test.pages.newContact.CreateContactPage;
-import com.acceptance.test.pages.newContact.SelectContactPage;
+import com.acceptance.test.pages.contact.CreateContactPage;
+import com.acceptance.test.pages.contact.SelectContactPage;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
