@@ -15,17 +15,18 @@ public class ProfileInfoPage extends BasePage {
     @AndroidFindAll({
             @AndroidBy(id="title_toolbar_text")
     })
-    MobileElement pageTitle;
+    private MobileElement pageTitle;
+
     @AndroidFindAll({
             @AndroidBy(id = "registration_submit"),
             @AndroidBy(xpath = "//*[@text='NEXT']")
     })
-    MobileElement next_Button;
+   private MobileElement next_Button;
 
     @AndroidFindAll({
             @AndroidBy(xpath = "//*[@class='android.widget.EditText']")
     })
-    MobileElement profileName_TextField;
+    private MobileElement profileName_TextField;
 
     public ProfileInfoPage() {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);

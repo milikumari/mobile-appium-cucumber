@@ -9,6 +9,7 @@ import com.acceptance.test.utils.ScenarioProvider;
 import com.acceptance.test.utils.TestDataProvider;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.assertj.core.api.Fail;
 
 public class SelectContactSteps extends  BaseSteps {
     private TestDataProvider testDataProvider;
@@ -44,16 +45,17 @@ public class SelectContactSteps extends  BaseSteps {
     }
 
     private  void sendFile(String attachmentType){
-          //TODO implement this in teh future
+          //TODO implement this in the future
         switch (attachmentType.toLowerCase()){
             case"documents":
                 onDocumentsFileSelectionPage.sendFileFromTheList();
                 break;
             case "location":
-                break;
             case "gallery":
              //   onGalleryPage().sendFileFromTheList()
                 break;
+            default:
+                Fail.fail("currently only uploading file from documents option is implemented please implement other options" );
         }
     }
 
@@ -65,7 +67,7 @@ public class SelectContactSteps extends  BaseSteps {
     @When("I add new contact")
     public void i_add_new_contact() {
         onSelectContactPage.selectNewContactOption();
-        onCreateContactPage.provideContactDetails(testDataProvider.getUser().getNewContactPersonName(),testDataProvider.getUser().getNewContactPersonNumber());
+        onCreateContactPage.provideContactDetails(testDataProvider.getUser().getNewContactPersonName(),testDataProvider.getUser().getNewContactPersonMobileNumber());
     }
     @When("I select a contact from the list")
     public void i_select_a_contact_from_the_list() {

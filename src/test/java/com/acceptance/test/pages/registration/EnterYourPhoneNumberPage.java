@@ -15,52 +15,53 @@ public class EnterYourPhoneNumberPage extends BasePage {
     @AndroidFindAll({
             @AndroidBy(id="title_toolbar_text")
     })
-    MobileElement pageTitle;
+   private MobileElement pageTitle;
+
     @AndroidFindAll({
             @AndroidBy(id = "registration_country")
     })
-    MobileElement registrationCountySelection_DropDown;
+   private MobileElement registrationCountySelection_DropDown;
 
     @AndroidFindAll({
             @AndroidBy(xpath = "//*[@class='android.widget.TextView'][@text='+44']")
     })
-    MobileElement selectUk_CountryOption;
+   private MobileElement selectUk_CountryOption;
 
     @AndroidFindAll({
             @AndroidBy(id = "registration_phone"),
             @AndroidBy(xpath = "//*[@class='android.widget.EditText'][@text='phone number']")
     })
-    MobileElement mobileNumber_TextField;
+    private MobileElement mobileNumber_TextField;
 
     @AndroidFindAll({
             @AndroidBy(id = "registration_submit"),
             @AndroidBy(xpath = "//*[@class='android.widget.Button'][@text='NEXT']")
     })
-    MobileElement next_Button;
+   private MobileElement next_Button;
 
     @AndroidFindAll({
             @AndroidBy(id = "button1"),
             @AndroidBy(xpath = "//*[@text='OK']")
     })
-    MobileElement ok_ButtonToConfirmNumber;
+    private MobileElement ok_ButtonToConfirmNumber;
 
     @AndroidFindAll({
             @AndroidBy(id = "button3"),
             @AndroidBy(xpath = "//*[@text='EDIT']")
     })
-    MobileElement edit_ButtonToAmendNumber;
+    private MobileElement edit_ButtonToAmendNumber;
 
     @AndroidFindAll({
             @AndroidBy(id = "cancel"),
             @AndroidBy(xpath = "//*[@class='android.widget.Button'][@text='Not Now']")
     })
-    MobileElement notNow_Button;
+    private MobileElement notNow_Button;
 
     @AndroidFindAll({
             @AndroidBy(id = "submit"),
             @AndroidBy(xpath = "//*[@class='android.widget.Button'][@text='CONTINUE']")
     })
-    MobileElement continue_Button;
+    private MobileElement continue_Button;
 
 
     @AndroidFindAll({
@@ -70,7 +71,7 @@ public class EnterYourPhoneNumberPage extends BasePage {
     @AndroidFindAll({
             @AndroidBy(xpath = "//*[@class='android.widget.Button'][@text='ALLOW']")
     })
-    MobileElement allow_Button;
+   private MobileElement allow_Button;
 
 
     public EnterYourPhoneNumberPage() {

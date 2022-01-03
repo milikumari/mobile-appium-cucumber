@@ -15,12 +15,12 @@ public class WhatsAppPage extends BasePage {
     @AndroidFindAll({
             @AndroidBy(xpath = "//android.widget.ImageButton[@content-desc='New chat']")
     })
-    MobileElement newChat_Option;
+   private MobileElement newChat_Option;
 
     @AndroidFindAll({
             @AndroidBy(xpath="//*[@class='android.widget.TextView'][@text='WhatsApp']")
     })
-    MobileElement pageTitle;
+    private MobileElement pageTitle;
 
     public WhatsAppPage() {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
@@ -30,7 +30,6 @@ public class WhatsAppPage extends BasePage {
 
         clickOn_(newChat_Option);
     }
-
 
     public void confirmWhatsAppChatScreenIsDisplayed() {
         assertTrue(pageTitle.getText().equalsIgnoreCase("WhatsApp"));

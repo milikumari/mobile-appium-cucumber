@@ -12,31 +12,32 @@ public class ContactPage extends BasePage {
     @AndroidFindAll({
             @AndroidBy(xpath = "//*[contains(@text,'Message ')]")
     })
-    MobileElement whatsAppMessage_Option;
+    private MobileElement whatsAppMessage_Option;
 
     @AndroidFindAll({
             @AndroidBy(xpath = "//TBC")
     })
-    MobileElement contactPersonName;
+    private MobileElement contactPersonName;
 
     @AndroidFindAll({
             @AndroidBy(xpath = "//TBC")
     })
-    MobileElement whatsAppVoiceCall_Option;
+    private MobileElement whatsAppVoiceCall_Option;
 
     @AndroidFindAll({
             @AndroidBy(xpath = "//TBC")
     })
-    MobileElement whatsAppVideoCall_Option;
+    private MobileElement whatsAppVideoCall_Option;
 
     @AndroidFindAll({
             @AndroidBy(xpath = "//TBC")
     })
-    MobileElement voiceCall_Option;
+    private MobileElement voiceCall_Option;
+
     @AndroidFindAll({
             @AndroidBy(xpath = "//TBC")
     })
-    MobileElement sms_Option;
+   private MobileElement sms_Option;
 
     public ContactPage() {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);

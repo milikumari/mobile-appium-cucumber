@@ -12,34 +12,31 @@ public class CreateContactPage extends BasePage {
     @AndroidFindAll({
             @AndroidBy(id = "TBC")
     })
-    MobileElement page_TitleName;
+    private MobileElement page_TitleName;
 
     @AndroidFindAll({
             @AndroidBy(xpath = "//TBC")
     })
-    MobileElement lastName_TextField;
+    private MobileElement lastName_TextField;
 
     @AndroidFindAll({
             @AndroidBy(xpath = "//*[@package='com.android.contacts'][@class='android.widget.Button'][@text='SAVE']")
     })
-    MobileElement save_Option;
+    private MobileElement save_Option;
 
     @AndroidFindAll({
             @AndroidBy(xpath = "//*[@package='com.android.contacts'][@class='android.widget.EditText'][@text='First name']")
     })
-    MobileElement name_TextField;
+    private MobileElement name_TextField;
 
     @AndroidFindAll({
             @AndroidBy(xpath = "//*[@package='com.android.contacts'][@class='android.widget.EditText'][@text='Phone']")
     })
-    MobileElement mobileNumber_TextField;
+    private MobileElement mobileNumber_TextField;
 
     public CreateContactPage() {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
-
-
-
 
     public void provideContactDetails(String name , String mobileNumber) {
         enterName(name);

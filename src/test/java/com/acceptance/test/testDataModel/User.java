@@ -27,12 +27,12 @@ public class User {
         this.countryCode = countryCode;
     }
 
-    public String getNewContactPersonNumber() {
-        return newContactPersonNumber;
+    public String getNewContactPersonMobileNumber() {
+        return newContactPersonMobileNumber;
     }
 
-    public void setNewContactPersonNumber(String newContactPersonNumber) {
-        this.newContactPersonNumber = newContactPersonNumber;
+    public void setNewContactPersonMobileNumber(String newContactPersonMobileNumber) {
+        this.newContactPersonMobileNumber = newContactPersonMobileNumber;
     }
 
     public String getAttachmentType() {
@@ -46,7 +46,7 @@ public class User {
     String profileName;
     String whatsAppNumberToRegister;
     String countryCode;
-    String newContactPersonNumber;
+    String newContactPersonMobileNumber;
     String attachmentType;
 
     public String getNewContactPersonName() {

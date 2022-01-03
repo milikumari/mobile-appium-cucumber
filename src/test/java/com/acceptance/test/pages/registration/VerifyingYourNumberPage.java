@@ -13,33 +13,33 @@ import static org.junit.Assert.assertTrue;
 public class VerifyingYourNumberPage extends BasePage {
 
     @AndroidBy(id = "verify_sms_code_input")
-    MobileElement enterOtp_textField;
+   private MobileElement enterOtp_textField;
 
     @AndroidFindAll({
             @AndroidBy(xpath = "//*[@class='android.widget.Button'][@text='Allow")
     })
-    MobileElement allow_ButtonONPopUpWindow;
+   private MobileElement allow_ButtonONPopUpWindow;
 
     @AndroidFindAll({
             @AndroidBy(xpath = "//*[@class='android.widget.Button'][@text='Deny")
     })
-    MobileElement deny_ButtonONPopUpWindow;
+    private MobileElement deny_ButtonONPopUpWindow;
 
     @AndroidFindAll({
             @AndroidBy(xpath = "//*[@class='android.widget.Button'][@text='CONTINUE")
     })
-    MobileElement continue_ButtonONPopUpWindow;
+    private MobileElement continue_ButtonONPopUpWindow;
 
     @AndroidFindAll({
             @AndroidBy(xpath = "//*[@class='android.widget.Button'][@text='NOT NOW")
     })
-    MobileElement notNow_ButtonONPopUpWindow;
+    private MobileElement notNow_ButtonONPopUpWindow;
 
 
     @AndroidFindAll({
             @AndroidBy(id="title_toolbar_text")
     })
-    MobileElement page_TitleName;
+    private MobileElement page_TitleName;
 
     public VerifyingYourNumberPage() {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);

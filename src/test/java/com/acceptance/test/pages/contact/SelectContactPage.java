@@ -15,34 +15,34 @@ public class SelectContactPage extends BasePage {
             @AndroidBy(id = "com.whatsapp:id/contactpicker_row_name"),
             @AndroidBy(xpath = "//*[@class='android.widget.TextView'][@text='New group']")
     })
-    MobileElement newGroup;
+    private MobileElement newGroup;
 
     @AndroidFindAll({
             @AndroidBy(xpath = "//*[@class='android.widget.TextView'][@text='New contact']")
     })
-    MobileElement newContact;
+   private MobileElement newContact;
 
     @AndroidFindAll({
             @AndroidBy(xpath = "//*[@class='android.widget.TextView'][@text='No WhatsApp contacts']")
     })
-    MobileElement  noWhatsAppContacts;
+    private MobileElement  noWhatsAppContacts;
 
     @AndroidFindAll({
             @AndroidBy(xpath = "//android.widget.FrameLayout[2]/android.widget.ListView/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.TextView")
     })
-    MobileElement firstContact;
+    private MobileElement firstContact;
 
     @AndroidFindAll({
             @AndroidBy(xpath = "//*[@class='android.widget.TextView'][@text='Invite friends']")
     })
-    MobileElement inviteFriends;
+   private MobileElement inviteFriends;
 
     @AndroidFindAll({
             @AndroidBy(id = "com.whatsapp:id/contact_picker_help_text_container"),
             @AndroidBy(xpath = "//*[@class='android.widget.TextView'][@text='Contacts help']")
 
     })
-    MobileElement contactHelp;
+   private MobileElement contactHelp;
 
     public SelectContactPage() {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);

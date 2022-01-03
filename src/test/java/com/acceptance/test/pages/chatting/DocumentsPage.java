@@ -12,17 +12,17 @@ public class DocumentsPage extends BasePage {
     @AndroidFindAll({
             @AndroidBy(xpath = "//*[@resource-id='com.whatsapp:id/document_picker_item'][@index='2']")
     })
-    MobileElement secondItemFromDocuments_List;
+    private MobileElement secondItemFromDocuments_List;
 
     @AndroidFindAll({
             @AndroidBy(xpath = "//*[@text='SEND'][@content-desc='Send']")
     })
-    MobileElement send_Button_OnPopUpWindow;
+   private MobileElement send_Button_OnPopUpWindow;
 
     @AndroidFindAll({
             @AndroidBy(xpath = "//*[@text='CANCEL'][@content-desc='Cancel']")
     })
-    MobileElement cancel_Button_OnPopUpWindow;
+    private MobileElement cancel_Button_OnPopUpWindow;
 
     public DocumentsPage() {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
