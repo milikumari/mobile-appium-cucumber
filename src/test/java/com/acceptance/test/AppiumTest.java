@@ -26,13 +26,12 @@ public class AppiumTest {
         launchMobileEnvironment();
     }
 
-
-
     public static void tearDown() {
 
         BasePage.driver.quit();
         if(runOnGrid.equals("false")){
-            AppiumHelper.stopAppiumServer();
+            //AppiumHelper.stopAppiumServer();
+            AppiumHelper.stop();
         }
     }
 

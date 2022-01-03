@@ -10,6 +10,7 @@ import org.assertj.core.api.Fail;
 import org.openqa.selenium.support.PageFactory;
 
 import static com.acceptance.test.pages.BasePage.isElementVisible;
+import static org.junit.Assert.assertTrue;
 
 public class ContactChatPage extends BasePage {
     @AndroidFindAll({
@@ -99,6 +100,11 @@ public class ContactChatPage extends BasePage {
     }
 
     public void FileIsSentToContact() {
-        isElementVisible(status_Delivered_OR_Seen_Indicator);
+        assertTrue("file is either not delivered or seen by receiver user",isFileDeliveredOrSeen());
+    }
+
+    private boolean isFileDeliveredOrSeen(){
+       return isElementVisible(status_Delivered_OR_Seen_Indicator);
+
     }
 }

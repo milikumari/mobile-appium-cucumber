@@ -35,7 +35,7 @@ public class AndroidTestRunner {
     }
 
     private static void setTestEnv() {
-        System.setProperty("testEnv", "brokerSim");
+        System.setProperty("testEnv", "local");
 
     }
 }

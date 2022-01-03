@@ -1,5 +1,6 @@
 package com.acceptance.test.pages;
 
+import com.acceptance.test.utils.LoadProperties;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
@@ -32,7 +33,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClick
 
 public class BasePage {
     protected final static Logger logger = LogManager.getLogger(BasePage.class);
-    private static final int TIMEOUT = 5;
+    private static final int TIMEOUT = Integer.parseInt(LoadProperties.getProperty("appium-wait-timeout"));
     public static AppiumDriver driver;
     private static final String osType = System.getProperty("platform-os-type");
     public static boolean iOS = osType.equalsIgnoreCase("iOS");
