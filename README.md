@@ -19,8 +19,10 @@ Branch name: https://github.com/milikumari/mobile-appium-cucumber/tree/Feature-W
 **Before running update capabilities & config details in env config properties file**  
 
 **Android Device:** (if using physical device)
-
 ```bash
+ path to config file :src/test/resources/config.properties
+ **please enable developer mode and uSB debugging n device
+
     android-device-name=  {provide your phone name}
     android-platform-version={provide software version of android Phone}
     android-udid= {provide device id of your phone }   
