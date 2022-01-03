@@ -15,4 +15,14 @@ public class CommonObjectsPage extends BasePage{
             @AndroidBy(xpath = "//*[@class='android.widget.Button'][@text='Deny")
     })
     protected MobileElement deny_ButtonONPopUpWindow;
+
+    @AndroidFindAll({
+            @AndroidBy(xpath = "//*[@class='android.widget.Button'][@text='SKIP")
+    })
+    protected MobileElement skip_ButtonONPopUpWindow;
+
+    @AndroidFindAll({
+            @AndroidBy(xpath = "//*[@class='android.widget.Button'][@text='SKIPRESTORE")
+    })
+    protected MobileElement skipRestore_ButtonONPopUpWindow;
 }
