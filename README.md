@@ -31,8 +31,8 @@ Branch name: https://github.com/milikumari/mobile-appium-cucumber/tree/Feature-W
 ```
 **Emulator (if running test on emulator update following  cap with your emulator details)**
 ```bash
-    android-udid=5554
-    android-device-name= Pixel_3a _XL_API_30 
+    android-udid= {provide udid of Emulator}
+    android-device-name=  {provide your Emulator name}
     android-platform-version={provide software version of android Emulator}
     platform-os-type=android
     device-type=emulator
