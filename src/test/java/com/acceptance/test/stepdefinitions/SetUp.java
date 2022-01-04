@@ -10,7 +10,8 @@ import java.io.IOException;
 
 public class SetUp {
 
-    private static final boolean isAppAlreadyLaunched = false;
+
+    private static  boolean isAppAlreadyLaunched = true;
 
 
     @After
@@ -30,13 +31,12 @@ public class SetUp {
     @Before
 
     public static void beforeScenario() {
-//        if(isAppAlreadyLaunched){
-//            isAppAlreadyLaunched=true;
-//        }else {
-//            AppiumTest.launchApp();
-//        }
-        //ffmpeg library is not found in the path install it usig 'brew install ffmpeg' to record video on iOS
-        AppiumTest.launchApp();
+        if(isAppAlreadyLaunched){
+                isAppAlreadyLaunched=false;
+            }else {
+                AppiumTest.launchApp();
+        }
+        //ffmpeg library is not found in the path install it using 'brew install ffmpeg' to record video on iOS
         if (BasePage.Android) {
             BasePage.startVideoRecording();
         }

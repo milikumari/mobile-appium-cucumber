@@ -16,7 +16,10 @@ import java.net.ServerSocket;
 import java.net.URL;
 import java.util.HashMap;
 
+import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class AppiumHelper {
 
@@ -35,8 +38,8 @@ public class AppiumHelper {
         } else {
             ipAddress = LoadProperties.getProperty("appium.ipAddress");
             port = LoadProperties.getProperty("appium.port");
-            //appiumService = startServer(ipAddress, port);
-            start();
+            appiumService = startServer(ipAddress, port);
+            //start();
 
         }
         URL driverUrl = setDriverUrl(ipAddress, port);
@@ -58,7 +61,7 @@ public class AppiumHelper {
     private static AppiumDriverLocalService startServer(String ipAddress, String port) {
 
         BasePage.logInfo("going to start Appium server");
-        String path= LoadProperties.getProperty("appium.js.path");
+        String path = LoadProperties.getProperty("appium.js.path");
 
         AppiumServiceBuilder builder = new AppiumServiceBuilder()
                 .withAppiumJS(new File(path))
@@ -89,57 +92,64 @@ public class AppiumHelper {
         }
         return driverUrl;
     }
-    public static void start(){
-        if(isPortAvailable(Integer.parseInt(LoadProperties.getProperty("appium.port")))){
-            getInstance().start();
-            System.out.println("Server started from here!");
-        }else
-            System.out.println("Server already running!");
-    }
+//
+//    public static void start(){
+//        if(isPortAvailable(Integer.parseInt(LoadProperties.getProperty("appium.port")))){
+//            getInstance().start();
+//            System.out.println("Server started from here!");
+//        }else
+//            System.out.println("Server already running!");
+//    }
 
-    static AppiumDriverLocalService getInstance(){
-        if(server == null){
-            setInstance();
-            server.clearOutPutStreams(); //stop printing appium logs to console
-        }
-        return server;
-    }
+//    static AppiumDriverLocalService getInstance() {
+//        if (server == null) {
+//            setInstance();
+//            server.clearOutPutStreams(); //stop printing appium logs to console
+//        }
+//        return server;
+//    }
 
-    static void setInstance(){
-        HashMap<String, String> environment = new HashMap();
-        //path to carthage
-        environment.put("PATH", "/usr/local/bin:" + System.getenv("PATH"));
+//    static void setInstance() {
+//        HashMap<String, String> environment = new HashMap();
+//        //path to carthage
+//        environment.put("PATH", "/usr/local/bin:" + System.getenv("PATH"));
+//
+//        AppiumServiceBuilder builder = new AppiumServiceBuilder();
+//        builder
+//                .withAppiumJS(new File(LoadProperties.getProperty("appium.js.path")))
+//                .withIPAddress(LoadProperties.getProperty("appium.ipAddress"))
+//                .usingPort(Integer.parseInt(LoadProperties.getProperty("appium.port")))
+//                .withEnvironment(environment)
+//                .withArgument(GeneralServerFlag.LOCAL_TIMEZONE)
+//                //.withArgument(GeneralServerFlag.LOG_LEVEL, "WARN")
+//                .withLogFile(new File("AppiumLog.txt"));
+//
+//        server = AppiumDriverLocalService.buildService(builder);
+//    }
 
-        AppiumServiceBuilder builder = new AppiumServiceBuilder();
-        builder
-                .withAppiumJS(new File(LoadProperties.getProperty("appium.js.path")))
-                .withIPAddress(LoadProperties.getProperty("appium.ipAddress"))
-                .usingPort(Integer.parseInt(LoadProperties.getProperty("appium.port")))
-                .withEnvironment(environment)
-                .withArgument(GeneralServerFlag.LOCAL_TIMEZONE)
-                .withArgument(GeneralServerFlag.LOG_LEVEL, "WARN")
-                .withLogFile(new File("AppiumLog.txt"));
-
-        server = AppiumDriverLocalService.buildService(builder);
-    }
-
-    public static boolean isPortAvailable(int port) {
-        //applicable for tcp ports
-        try (ServerSocket serverSocket = new ServerSocket()) {
-            // setReuseAddress(false) is required only on OSX,
-            // otherwise the code will not work correctly on that platform
-            serverSocket.setReuseAddress(false);
-            serverSocket.bind(new InetSocketAddress(InetAddress.getByName("localhost"), port), 1);
-            return true;
-        } catch (Exception ex) {
-            return false;
-        }
-    }
-
-    public static void stop(){
-        if(server != null){
-            getInstance().stop();
-            System.out.println("Appium server stopped!");
-        }
-    }
+//    public static boolean isPortAvailable(int port) {
+//        //applicable for tcp ports
+//        try (ServerSocket serverSocket = new ServerSocket()) {
+//            // setReuseAddress(false) is required only on OSX,
+//            // otherwise the code will not work correctly on that platform
+//            serverSocket.setReuseAddress(false);
+//            serverSocket.bind(new InetSocketAddress(InetAddress.getByName("localhost"), port), 1);
+//            return true;
+//        } catch (Exception ex) {
+//            return false;
+//        }
+//    }
+//
+//    public static void stop() {
+//        try {
+//            if (server != null) {
+//                getInstance().stop();
+//               // Thread.sleep(2000);
+//                System.out.println("Appium server stopped!");
+//                assertFalse((server.isRunning()));
+//            }
+//        } catch (Exception e) {
+//            e.getStackTrace();
+//        }
+//    }
 }

@@ -29,9 +29,9 @@ public class AppiumTest {
     public static void tearDown() {
 
         BasePage.driver.quit();
-        if(runOnGrid.equals("false")){
-           // AppiumHelper.stopAppiumServer();
-            AppiumHelper.stop();
+        if(!runOnGrid.equals("false")){
+            AppiumHelper.stopAppiumServer();
+            //AppiumHelper.stop();
         }
     }
 
