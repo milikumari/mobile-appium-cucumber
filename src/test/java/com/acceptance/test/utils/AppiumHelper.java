@@ -21,7 +21,7 @@ import static java.util.Objects.nonNull;
 public class AppiumHelper {
 
     private static final String runOnGrid = System.getProperty("run-on-grid");
-    //private static AppiumDriverLocalService appiumService;
+    private static AppiumDriverLocalService appiumService;
     static AppiumDriverLocalService server;
 
 
@@ -35,8 +35,8 @@ public class AppiumHelper {
         } else {
             ipAddress = LoadProperties.getProperty("appium.ipAddress");
             port = LoadProperties.getProperty("appium.port");
-           // appiumService = startServer(ipAddress, port);
-            startAppiumServer();
+            //appiumService = startServer(ipAddress, port);
+            start();
 
         }
         URL driverUrl = setDriverUrl(ipAddress, port);
@@ -55,29 +55,29 @@ public class AppiumHelper {
         return driver;
     }
 
-//    private static AppiumDriverLocalService startServer(String ipAddress, String port) {
-//
-//        BasePage.logInfo("going to start Appium server");
-//        String path= LoadProperties.getProperty("appium.js.path");
-//
-//        AppiumServiceBuilder builder = new AppiumServiceBuilder()
-//                .withAppiumJS(new File(path))
-//                .withArgument(GeneralServerFlag.LOG_LEVEL, "info")
-//                .withIPAddress(ipAddress)
-//                .usingPort(Integer.parseInt(port));
-//        AppiumDriverLocalService service = AppiumDriverLocalService.buildService(builder);
-//        service.start();
-//        return service;
-//    }
+    private static AppiumDriverLocalService startServer(String ipAddress, String port) {
 
-//    public static void stopAppiumServer() {
-//
-//        BasePage.logInfo(" going to stop Appium server now");
-//        if (nonNull(appiumService) && appiumService.isRunning()) {
-//            appiumService.stop();
-//        }
-//        BasePage.logInfo(" Appium server is stopped ");
-//    }
+        BasePage.logInfo("going to start Appium server");
+        String path= LoadProperties.getProperty("appium.js.path");
+
+        AppiumServiceBuilder builder = new AppiumServiceBuilder()
+                .withAppiumJS(new File(path))
+                .withArgument(GeneralServerFlag.LOG_LEVEL, "info")
+                .withIPAddress(ipAddress)
+                .usingPort(Integer.parseInt(port));
+        AppiumDriverLocalService service = AppiumDriverLocalService.buildService(builder);
+        service.start();
+        return service;
+    }
+
+    public static void stopAppiumServer() {
+
+        BasePage.logInfo(" going to stop Appium server now");
+        if (nonNull(appiumService) && appiumService.isRunning()) {
+            appiumService.stop();
+        }
+        BasePage.logInfo(" Appium server is stopped ");
+    }
 
     private static URL setDriverUrl(String ipAddress, String port) {
 
@@ -89,8 +89,7 @@ public class AppiumHelper {
         }
         return driverUrl;
     }
-
-    public static void startAppiumServer(){
+    public static void start(){
         if(isPortAvailable(Integer.parseInt(LoadProperties.getProperty("appium.port")))){
             getInstance().start();
             System.out.println("Server started from here!");
@@ -109,7 +108,8 @@ public class AppiumHelper {
     static void setInstance(){
         HashMap<String, String> environment = new HashMap();
         //path to carthage
-        //environment.put("PATH", "/usr/local/bin:" + System.getenv("PATH"));
+        environment.put("PATH", "/usr/local/bin:" + System.getenv("PATH"));
+
         AppiumServiceBuilder builder = new AppiumServiceBuilder();
         builder
                 .withAppiumJS(new File(LoadProperties.getProperty("appium.js.path")))
@@ -117,7 +117,7 @@ public class AppiumHelper {
                 .usingPort(Integer.parseInt(LoadProperties.getProperty("appium.port")))
                 .withEnvironment(environment)
                 .withArgument(GeneralServerFlag.LOCAL_TIMEZONE)
-                .withArgument(GeneralServerFlag.LOG_LEVEL, "INFO")
+                .withArgument(GeneralServerFlag.LOG_LEVEL, "WARN")
                 .withLogFile(new File("AppiumLog.txt"));
 
         server = AppiumDriverLocalService.buildService(builder);
@@ -136,9 +136,8 @@ public class AppiumHelper {
         }
     }
 
-
-    public static void stop() {
-        if (server != null) {
+    public static void stop(){
+        if(server != null){
             getInstance().stop();
             System.out.println("Appium server stopped!");
         }

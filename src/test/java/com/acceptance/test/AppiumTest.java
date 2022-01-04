@@ -30,7 +30,7 @@ public class AppiumTest {
 
         BasePage.driver.quit();
         if(runOnGrid.equals("false")){
-            //AppiumHelper.stopAppiumServer();
+           // AppiumHelper.stopAppiumServer();
             AppiumHelper.stop();
         }
     }

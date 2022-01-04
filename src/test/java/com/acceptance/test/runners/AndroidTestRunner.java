@@ -25,6 +25,7 @@ public class AndroidTestRunner {
     @BeforeClass
     public static void setupServer() {
         PropertyLoader.loadConfig();
+        // TODO add step to delete Appiumlog.txt
         AppiumTest.setUp();
     }
 

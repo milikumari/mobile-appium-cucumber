@@ -28,9 +28,9 @@ public class DriverManager {
         capabilities.setCapability("app", System.getProperty("user.dir")+ props.getProperty("android-app"));
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, System.getProperty("android-device-name"));
         // capabilities.setCapability("locationServiceEnabled",false);
-        capabilities.setCapability("noReset", true);
-        // capabilities.setCapability("fullReset",true);
-
+       // capabilities.setCapability("noReset", true);
+        //fullrestwill uninstalled app after test is completed
+         capabilities.setCapability("fullReset",true);
         capabilities.setCapability("appPackage", "com.whatsapp");
         capabilities.setCapability("appActivity", "com.whatsapp.Main");
         capabilities.setCapability("automationName", "uiautomator2");

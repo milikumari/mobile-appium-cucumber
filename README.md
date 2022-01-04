@@ -90,6 +90,7 @@ For Windows:** adb shell dumpsys window | find "mCurrentFocus"
 * https://github.com/saikrishna321/VodQaAdvancedAppium/blob/master/src/test/java/com/appium/gesture/GestureTest.java
 * https://github.com/AppiumTestDistribution/appium-gestures-plugin
 * https://github.com/vikramvi/AppiumSerenityPOC
+* https://github.com/sunilpatro1985/AppiumTest_Java_And_iOS 
 
 **TODO list :**
 * Add support to run test in Cloud (BrowserStack/Sauce Lab)
