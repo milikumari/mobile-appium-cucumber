@@ -72,6 +72,14 @@ open terminal and navigate to project directory or just open terminal from IDE  
 ```bash
   "/target/AndroidReports/cucumber-html-reports/overview-features.html"
 ```
+**Video of test execution will be available here:
+```bash
+
+  src/test/resources/testOutput/videos/android/local/passed
+  or 
+  src/test/resources/testOutput/videos/android/local/passed
+
+```
 cucumber report plugin;
 **please add this as plugin option in cucumber runner class**
 
