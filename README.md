@@ -101,6 +101,7 @@ For Windows:** adb shell dumpsys window | find "mCurrentFocus"
 
 **TODO list :**
 * Add support to run test in Cloud (BrowserStack/Sauce Lab)
+* Add API support using Twilio or other service to receive OTP &  implement step to  read OTP from notification panel in Android device
 * Move common objects into single pages CommonObjectPage (  buttons on pop up screen, Next button etc) 
 and extend this class where this buttons present. also update object elements name to be more consistence 
 * work on reporting & log Appium actions in log files for debugging & improve on waiting time before action.
