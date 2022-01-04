@@ -60,24 +60,23 @@ Branch name: https://github.com/milikumari/mobile-appium-cucumber/tree/Feature-W
     "attachmentType": "documents"
 }  
 ```
-**To run all test  via command line run below command line:**
-open terminal and navigate to project directory or just open terminal from IDE  & run->
-
+**To run all test open terminal and navigate to project directory 
+or just open terminal from IDE  & run:**
 ```bash
    mvn test
 ```
 
-**Report will be generated at in project target folder:** 
-
+**Report will be generated at in project target folder:**
 ```bash
   "/target/AndroidReports/cucumber-html-reports/overview-features.html"
 ```
-**Video of test execution will be available here:
+**Video of test execution will be available here:**
 ```bash
-
   src/test/resources/testOutput/videos/android/local/passed
   or 
-  src/test/resources/testOutput/videos/android/local/passed
+  src/test/resdeo of test execution will be available here:**
+```bash
+  srources/testOutput/videos/android/local/passed
 
 ```
 cucumber report plugin;
@@ -116,4 +115,4 @@ and extend this class where this buttons present. also update object elements na
 * move to Serenity: 
 
 https://serenity-bdd.github.io/theserenitybook/latest/index.html
-http://www.thucydides.info/docs/serenity/#_serenity_with_cucumber]
+http://www.thucydides.info/docs/serenity/#_serenity_with_cucumber
