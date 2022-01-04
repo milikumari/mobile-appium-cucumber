@@ -1,7 +1,11 @@
 **Automation of 'Whats App' native mobile application using Cucumber & Appium**
 ```bash
-This project will run on Android Emulator or on Android device connected to local PC. I have executed this test
-on Emulator,running on my window 10 laptop. 
+This project will run on Android Emulator ( test will fail in emulator as support to access OTP via Api using twilio or other service is not yet implemented
+) or on Android device connected to local PC. I have executed this test
+on Emulator (OTP step was manually done), running on my window 10 laptop. 
+
+* In Android mobile device Whats App can read OTP automatically if permission is granted to whats app**
+* OR Appium can read OTP  from notification panel.
 ```
 **Pre-condition**
 ```bash
@@ -71,6 +75,9 @@ open terminal and navigate to project directory or just open terminal from IDE  
 cucumber report plugin;
 **please add this as plugin option in cucumber runner class**
 
+
+```bash
+Features are availbel in 
 ```bash
 "de.monochromata.cucumber.report.PrettyReports:target/AndroidReports"
 for Usage Example: see AndroidTestRunnerClass
